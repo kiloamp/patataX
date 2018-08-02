@@ -1,26 +1,26 @@
 {
 	"name":"potatoeX",
 	"type":"library",
-  "description":"Requirements and autoload for PotatoeX",
+	"description":"Requirements and autoload for PotatoeX",
 	"license":"proprietary",
 	"authors":[
-        {
-            "name":"Luis Vierroth",
-            "role":"Developer"
-        },
-        {
-            "name":"Carlos Lagoa",
-            "role":"Developer"
-        }
-    ],
-    "require":{
-    	"php":">=7.1.16",
-    	"graphaware/neo4j-php-client":"4.8.4",
-    	"paragonie/sodium_compat":"v1.6.3"
-    },
-    "autoload":{
-    	"psr-4":{
-    		"Potatoe\\":"php/classes/"
-    	}
-    }
+		{
+			"name":"Luis Vierroth",
+			"role":"Developer"
+		},
+		{
+			"name":"Carlos Lagoa",
+			"role":"Developer"
+		}
+    	],
+	"require":{
+		"php":">=7.1.16",
+		"graphaware/neo4j-php-client":"4.8.4",
+		"paragonie/sodium_compat":"v1.6.3"
+	},
+	"autoload":{
+		"psr-4":{
+			"Potatoe\\":"php/classes/"
+		}
+	}
 }
