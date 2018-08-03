@@ -1,5 +1,5 @@
 <?php
-
+require_once('../vendor/autoload.php');
 $name = $password = $email = $username = null; 
 $status = ['status' => 1, 'fields' => ['name' => 1, 'password' => 1, 'email' => 1, 'username' => 1]]; 
 if($_SERVER['REQUEST_METHOD'] = 'POST'){
