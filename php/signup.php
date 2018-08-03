@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] = 'POST'){
 		$status['fields']['password'] = 2; 
 	}
 	if(isset($_POST['email']) && !empty($_POST['email'])){ 
-		if(preg_match('^[\w-\+]+(\.[\w]+)@[\w-]+(\.[\w]+)(\.[a-z]{2,})$', $_POST['email'])){
+		if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
 			$status['fields']['email'] = 0;
 		}
 		else{
