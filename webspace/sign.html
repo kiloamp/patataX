@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>patataX</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#signUp').submit(function(event){
+				event.preventDefault();
+				$.ajax({type:'POST', url:'/php/signup.php', timeout:2000, data:{username:$('#username').val(), email:$('#email').val(), password:$('#password').val(), name:$('#name').val()}, dataType: 'json', cache: false, success: function(response){
+					if(response.status === 0){
+						location = "http://www.changeovertennis.com/wp-content/uploads/2016/03/potato-03.gif";
+					}
+					
+				}});
+			});
+		});
+	</script>
+</head>
+<body>
+	<form id="signUp">
+		<input type="text" id="username" placeholder="Username here"/>
+		<br>
+		<input type="text" id="name" placeholder="Name goes here"/>
+		<br>
+		<input type="text" id="email" placeholder="Aaand your email here"/>
+		<br>
+		<input type="password" id="password" placeholder="Create your password"/>
+		<br>
+		<input type="submit" value="Sign Up"/>
+	</form>
+</body>
+
+</html>

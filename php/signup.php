@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] = 'POST'){
 	}
 	if(isset($_POST['username']) && !empty($_POST['username'])){
 		if(strlen($_POST['username']) <= 10){ 
-			if(!preg_match('\s',$_POST['username'])){
+			if(!preg_match( '/\s/',$_POST['username'])){
 				$status['fields']['username'] = 0; 
 			}
 			else{
@@ -47,6 +47,13 @@ if($_SERVER['REQUEST_METHOD'] = 'POST'){
 	}
 	else{
 		$status['fields']['username'] = 2; 
+	}
+	if($status['fields']['name'] === 0 && $status['fields']['username'] === 0 && $status['fields']['password'] === 0 && $status['fields']['email'] === 0){
+		
+		$status['status'] = 0;	
+	}
+	else{
+		$status['status'] = 3;
 	}
 }
 else{
