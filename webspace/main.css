@@ -49,7 +49,7 @@ input[type=submit]:active{
 	transform: translateY(0.2rem);}	
 	
 button:disabled {
-	border-bottom: 0.1rem solid white;
+	border-bottom: 0.1rem solid #afafaf;
 	color: white;}
 	
 button{
