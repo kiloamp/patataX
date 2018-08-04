@@ -1,35 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="main.css">
 	<meta charset="utf-8"> 
 	<title>patataX</title>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script>
 		$(document).ready(function(){
+			$('#signIn').submit(function(event){
+				event.preventDefault();
+				$.ajax({type:'POST', url:'/php/signin.php', timeout:2000, data:{email:$('#siemail').val(), password:$('#sipassword').val()}, dataType: 'json', cache: false, success: function(response){
+					if(response.status === 0){
+						location = "main.html";
+					}
+					
+				}});
+			});
 			$('#signUp').submit(function(event){
 				event.preventDefault();
 				$.ajax({type:'POST', url:'/php/signup.php', timeout:2000, data:{username:$('#username').val(), email:$('#email').val(), password:$('#password').val(), name:$('#name').val()}, dataType: 'json', cache: false, success: function(response){
 					if(response.status === 0){
-						location = "http://www.changeovertennis.com/wp-content/uploads/2016/03/potato-03.gif";
+						location.reload();
 					}
 					
 				}});
+			});
+			$('#patata').click(function(){
+				$('#signIn').toggle();
+				$('#signUp').toggle();
+				$('#patata').prop('disabled', true);
+				$('#patata1').prop('disabled', false);
+			});
+			$('#patata1').click(function(){
+				$('#signIn').toggle();
+				$('#signUp').toggle();
+				$('#patata1').prop('disabled', true);
+				$('#patata').prop('disabled', false);
 			});
 		});
 	</script>
 </head>
 <body>
-	<form id="signUp">
-		<input type="text" id="username" placeholder="Username here"/>
+<div id='wrapper'>
+	<div id='main'>
+	<div id='switcher'>
+		<button type="button" disabled id="patata">sign in</button>
+		or
+		<button type="button" id="patata1">sign up</button>
+	</div>
+	<br><br>
+	<form id="signIn">
+		<input type="text" id="siemail" placeholder="email"/>
 		<br>
-		<input type="text" id="name" placeholder="Name goes here"/>
+		<input type="password" id="sipassword" placeholder="password"/>
+		<br><br>
+		<input type="submit" value="Sign In"/>
+	</form>
+	<form id="signUp" hidden>
+		<input type="text" id="username" placeholder="username"/>
 		<br>
-		<input type="text" id="email" placeholder="Aaand your email here"/>
+		<input type="text" id="name" placeholder="name"/>
 		<br>
-		<input type="password" id="password" placeholder="Create your password"/>
+		<input type="text" id="email" placeholder="email"/>
 		<br>
+		<input type="password" id="password" placeholder="password"/>
+		<br><br>
 		<input type="submit" value="Sign Up"/>
 	</form>
+	</div>
+</div>
 </body>
 
 </html>
