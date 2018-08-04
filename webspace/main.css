@@ -9,7 +9,7 @@ html, body{
 	width: 100%;
 	height: 100%;
 	display: grid;
-	grid-template-columns: 1fr minmax(12rem, 2.6fr) 1fr;
+	grid-template-columns: 1fr minmax(34rem, 36rem) 1fr;
 	grid-template-rows: 1fr minmax(auto, 2fr) 1fr;
 	grid-template-areas: 
 	". . ."
@@ -19,48 +19,48 @@ html, body{
 #main{
 	grid-area: main;
 	background: #585560;
-	border-radius: 0rem 0rem 0rem 0rem;
-	box-shadow: 0.45rem 0.45rem 0 0 rgba(0,0,0,0.35);
-	padding-left: 5rem;
-	padding-right: 5rem;
-	padding-bottom: 3rem;
-	padding-top: 3rem;
+	box-shadow: 0.55rem 0.55rem 0 0 rgba(0,0,0,0.35);
+	padding-left: 7rem;
+	padding-right: 7rem;
+	padding-bottom: 5rem;
+	padding-top: 5rem;
 	text-align: center;}
 	
 input[type=text], input[type=password] {
     border: none;
-    border-bottom: 2px solid #afafaf;
+    border-bottom: 0.2rem solid #afafaf;
 	background: transparent;
 	width: 100%;
+	font-size: 1.6rem;
 	color: white;
 }
 
 input[type=submit]{
 	border: none;
-	box-shadow: 0 0.2rem 0 0 rgba(0,0,0,0.7);
+	box-shadow: 0 0.3rem 0 0 rgba(0,0,0,0.3);
 	background-color: #c347e5;
 	border-radius: 1rem;
-	height: 1.4rem;
+	height: 1.8rem;
 	width: 100%
 }
 
 input[type=submit]:active{
 	box-shadow: none;
-	transform: translateY(0.2rem);}	
+	transform: translateY(0.3rem);}	
 	
 button:disabled {
-	border-bottom: 0.1rem solid #afafaf;
+	border-bottom: 0.3rem solid #afafaf;
 	color: white;}
 	
 button{
 	background: none;
 	border: none;
 	padding: 0.2rem;
-	font-size: 0.9rem;
+	font-size: 2rem;
 	color: white;}
 	
 #switcher{
 	color: #afafaf;
 	font-weight: 600;
-	font-size: 0.9rem;
+	font-size: 2rem;
 }
