@@ -1,5 +1,6 @@
 <?php
 require_once('../vendor/autoload.php');
+$client=GraphAware\Neo4j\Client\ClientBuilder::create()->addConnection('bolt', 'bolt://php:CodeAccess12@localhost:7687')->build();
 $name = $password = $email = $username = null; 
 $status = ['status' => 1, 'fields' => ['name' => 1, 'password' => 1, 'email' => 1, 'username' => 1]]; 
 if($_SERVER['REQUEST_METHOD'] = 'POST'){
@@ -49,8 +50,8 @@ if($_SERVER['REQUEST_METHOD'] = 'POST'){
 		$status['fields']['username'] = 2; 
 	}
 	if($status['fields']['name'] === 0 && $status['fields']['username'] === 0 && $status['fields']['password'] === 0 && $status['fields']['email'] === 0){
-		
-		$status['status'] = 0;	
+		$status['status'] = 0;
+		$client->run("CREATE (a:Account) SET a += {info}", ['info'=>['name'=>$name]]);
 	}
 	else{
 		$status['status'] = 3;
